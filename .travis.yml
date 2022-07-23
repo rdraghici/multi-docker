@@ -9,10 +9,10 @@ script:
   - docker run -e CI=true rdraghici/react-test npm run test -- --coverage
 
 after_success:
-  - docker built -t rdraghici/multi-client ./client
-  - docker built -t rdraghici/multi-nginx ./nginx
-  - docker built -t rdraghici/multi-server ./server
-  - docker built -t rdraghici/multi-worker ./worker
+  - docker build -t rdraghici/multi-client ./client
+  - docker build -t rdraghici/multi-nginx ./nginx
+  - docker build -t rdraghici/multi-server ./server
+  - docker build -t rdraghici/multi-worker ./worker
   #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Take those images and push them to docker hub
