@@ -5,6 +5,8 @@ services:
 before_install:
   - docker build -t rdraghici/react-test -f ./client/Dockerfile.dev ./client
 
+install: travis_wait mvn install
+
 script:
   - docker run rdraghici/react-test npm test -- --coverage
 
